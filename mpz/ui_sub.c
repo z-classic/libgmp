@@ -32,7 +32,7 @@ see https://www.gnu.org/licenses/.  */
 #include "gmp-impl.h"
 
 void
-mpz_ui_sub (mpz_ptr w, unsigned long int uval, mpz_srcptr v)
+mpz_ui_sub (mpz_ptr w, unsigned long long int uval, mpz_srcptr v)
 {
   mp_ptr vp, wp;
   mp_size_t vn, wn;

@@ -33,14 +33,14 @@ see https://www.gnu.org/licenses/.  */
 #include "gmp-impl.h"
 
 void
-mpz_set_ui (mpz_ptr dest, unsigned long int val)
+mpz_set_ui (mpz_ptr dest, unsigned long long int val)
 {
   mp_size_t size;
 
   PTR (dest)[0] = val & GMP_NUMB_MASK;
   size = val != 0;
 
-#if BITS_PER_ULONG > GMP_NUMB_BITS  /* avoid warnings about shift amount */
+#if BITS_PER_ULONG < GMP_NUMB_BITS  /* avoid warnings about shift amount */
   if (val > GMP_NUMB_MAX)
     {
       MPZ_REALLOC (dest, 2);
